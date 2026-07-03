@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Welcome123</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Welcome123</h1>
+        </header>
+        
+        <main>
+            <!-- Show Data Button -->
+            <button id="showDataBtn" class="btn-primary" disabled>
+                <span class="btn-text">Show Data</span>
+                <span class="btn-loader hidden"></span>
+            </button>
+
+            <!-- Error Message -->
+            <div id="errorContainer" class="error-message hidden"></div>
+
+            <!-- Data Container -->
+            <div id="dataContainer" class="data-container hidden">
+                
+                <!-- Year Slider -->
+                <div id="yearSlider" class="year-slider hidden">
+                    <div class="slider-label">Select Year</div>
+                    <div id="yearTabs" class="year-tabs"></div>
+                </div>
+
+                <!-- Table Title -->
+                <h2 id="tableTitle" class="table-title">Yearly Cumulative Summary</h2>
+
+                <!-- Table -->
+                <div class="table-wrapper">
+                    <table id="summaryTable">
+                        <thead>
+                            <tr id="tableHeader"></tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+
+                <!-- Table Footer -->
+                <div id="tableFooter" class="table-footer"></div>
+            </div>
+        </main>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

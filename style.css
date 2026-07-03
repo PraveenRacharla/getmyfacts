@@ -1,0 +1,523 @@
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --bg-body: #f3f4f6;
+    --bg-card: #ffffff;
+    --bg-input: #f9fafb;
+    --text-primary: #1f2937;
+    --text-secondary: #6b7280;
+    --text-muted: #9ca3af;
+    --border: #e5e7eb;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+    --radius: 16px;
+    --radius-sm: 12px;
+    --radius-xs: 8px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+    padding: 40px 24px;
+    text-align: center;
+}
+
+header h1 {
+    color: #ffffff;
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   Main
+   ============================================ */
+main {
+    padding: 24px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* ============================================
+   Button
+   ============================================ */
+.btn-primary {
+    width: 100%;
+    padding: 16px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffffff;
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    min-height: 54px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-primary:hover:not(:disabled) {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
+}
+
+.btn-primary:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.btn-primary.active {
+    background: var(--danger);
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-primary.active:hover:not(:disabled) {
+    background: #dc2626;
+    box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+}
+
+.btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--text-muted);
+    box-shadow: none;
+}
+
+.btn-loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   Error Message
+   ============================================ */
+.error-message {
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: var(--radius-xs);
+    padding: 14px 16px;
+    color: var(--danger);
+    font-size: 0.9rem;
+    text-align: center;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+}
+
+/* ============================================
+   Data Container
+   ============================================ */
+.data-container {
+    animation: slideDown 0.35s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================
+   Year Slider
+   ============================================ */
+.year-slider {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.slider-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.year-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+}
+
+.year-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.year-tab {
+    flex-shrink: 0;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: var(--bg-input);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-xs);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.year-tab:hover {
+    border-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.year-tab.active {
+    background: var(--primary);
+    color: #ffffff;
+    border-color: var(--primary);
+    box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+/* ============================================
+   Table Title
+   ============================================ */
+.table-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+/* ============================================
+   Table
+   ============================================ */
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-xs);
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    max-height: 65vh;
+    overflow-y: auto;
+}
+
+.table-wrapper::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+#summaryTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    min-width: 600px;
+}
+
+#summaryTable thead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+#summaryTable th {
+    background: #f8fafc;
+    color: var(--text-secondary);
+    padding: 12px 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    border-bottom: 2px solid var(--border);
+}
+
+#summaryTable th:first-child {
+    text-align: left;
+    padding-left: 14px;
+}
+
+#summaryTable th.total-col {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+#summaryTable td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+    text-align: center;
+    vertical-align: middle;
+}
+
+#summaryTable td:first-child {
+    text-align: left;
+    padding-left: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+#summaryTable tbody tr {
+    transition: background 0.15s ease;
+}
+
+#summaryTable tbody tr:hover {
+    background: #f8fafc;
+}
+
+#summaryTable tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Number formatting */
+.number-value {
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-weight: 500;
+}
+
+.null-value {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* Total cell in data rows */
+.total-cell {
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* ============================================
+   Grand Total Row
+   ============================================ */
+.grand-total-row {
+    background: #eff6ff !important;
+    border-top: 2px solid var(--primary);
+}
+
+.grand-total-row:hover {
+    background: #dbeafe !important;
+}
+
+.grand-total-row td {
+    font-weight: 700;
+    color: var(--primary);
+    padding: 14px 10px;
+}
+
+.grand-total-row td:first-child {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.grand-total-row .total-value {
+    font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+    font-weight: 700;
+}
+
+/* ============================================
+   Table Footer
+   ============================================ */
+.table-footer {
+    text-align: center;
+    padding: 8px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   Utilities
+   ============================================ */
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   Mobile Optimizations
+   ============================================ */
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+        background: var(--bg-card);
+    }
+
+    .container {
+        max-width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+        min-height: 100vh;
+    }
+
+    header {
+        padding: 28px 16px;
+    }
+
+    header h1 {
+        font-size: 1.4rem;
+    }
+
+    main {
+        padding: 16px 12px;
+    }
+
+    .btn-primary {
+        padding: 14px 20px;
+        font-size: 1rem;
+        min-height: 50px;
+    }
+
+    .year-tab {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+
+    .table-title {
+        font-size: 1rem;
+    }
+
+    #summaryTable th,
+    #summaryTable td {
+        padding: 10px 8px;
+        font-size: 0.75rem;
+    }
+
+    .table-wrapper {
+        max-height: 60vh;
+        border-radius: 8px;
+    }
+
+    .grand-total-row td {
+        padding: 12px 8px;
+    }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+    .table-wrapper {
+        max-height: 50vh;
+    }
+}
+
+/* ============================================
+   Dark Mode
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-body: #111827;
+        --bg-card: #1f2937;
+        --bg-input: #374151;
+        --text-primary: #f9fafb;
+        --text-secondary: #d1d5db;
+        --text-muted: #9ca3af;
+        --border: #4b5563;
+    }
+
+    body {
+        background: linear-gradient(135deg, #4c1d95 0%, #312e81 100%);
+    }
+
+    .error-message {
+        background: #7f1d1d;
+        border-color: #b91c1c;
+        color: #fecaca;
+    }
+
+    #summaryTable th {
+        background: #374151;
+        color: #d1d5db;
+    }
+
+    #summaryTable tbody tr:hover {
+        background: #374151;
+    }
+
+    .grand-total-row {
+        background: #1e3a5f !important;
+    }
+
+    .grand-total-row:hover {
+        background: #1e40af !important;
+    }
+
+    .grand-total-row td {
+        color: #60a5fa;
+    }
+
+    .table-wrapper::-webkit-scrollbar-track {
+        background: #374151;
+    }
+
+    .table-wrapper::-webkit-scrollbar-thumb {
+        background: #6b7280;
+    }
+}
